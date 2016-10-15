@@ -1,0 +1,42 @@
+<ion-view>
+
+  <ion-content>
+
+<div class="abc">
+
+ <div class="transbox">
+
+
+
+
+   <div class="list">
+
+     <div class="list list-inset">
+       <label class="item item-input" style="border: 3px solid black">
+         <i class=""><img class="username_icon" src="http://zt.liuxue360.com/au/au_studyabroad/images/users.png"></i>
+         <input class="user_inputfield" type="text" ng-model="username" placeholder="Username">
+       </label>
+     </div>
+   <div class="list list-inset">
+     <label class="item item-input"  style="border: 3px solid black">
+       <i class=""><img class="password_icon" src="http://findicons.com/files/icons/974/glyphish/24/12_eye.png"></i>
+       <input class="password_inputfield" type="password"ng-model="password" placeholder="Password">
+     </label>
+   </div>
+     <div style="text-align:center;">
+       <button ng-click="logi(username,password)" class="button button-dark" style="width:95%;">
+         Login</button>
+       <p>or</p><br>
+       <button ng-click="fbLogin()"
+               class=" button button-positive  button-block icon-left ion-social-facebook " id="signup-button4"
+               style="width: 160px">FACEBOOK
+       </button >
+     </div>
+
+ </div>
+   </div>
+   </div>
+
+
+  </ion-content>
+</ion-view>
