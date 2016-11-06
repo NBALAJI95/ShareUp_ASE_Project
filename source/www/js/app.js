@@ -68,28 +68,28 @@ function startScan() {
 
               $scope.prices.push($scope.price0);
             }
-          else if($scope.inputs[i].value=='b'){
+          else if($scope.inputs[i].value=='doritos'){
             console.log(data.items[1].salePrice);
               console.log($scope.prices);
             $scope.price1= data.items[1].salePrice;
 
               $scope.prices.push($scope.price1);}
-          else if($scope.inputs[i].value=='c'){
+          else if($scope.inputs[i].value=='snickers'){
             console.log(data.items[2].salePrice);
             $scope.price2= data.items[2].salePrice;
               $scope.prices.push($scope.price2);
            }
-          else if($scope.inputs[i].value=='d'){
+          else if($scope.inputs[i].value=='monster'){
             console.log(data.items[3].salePrice);
             $scope.price3= data.items[3].salePrice;
             ;
               $scope.prices.push($scope.price3)}
-          else if($scope.inputs[i].value=='e'){
+          else if($scope.inputs[i].value=='kraft'||$scope.inputs[i].value=='cheese'){
             console.log(data.items[4].salePrice);
             $scope.price4= data.items[4].salePrice
               $scope.prices.push($scope.price4);;
               }
-          else if($scope.inputs[i].value=='f'){
+          else if($scope.inputs[i].value=='louna'||$scope.inputs[i].value=='oil'){
             console.log(data.items[5].salePrice);
             $scope.price5= data.items[5].salePrice;
               $scope.prices.push($scope.price5);
