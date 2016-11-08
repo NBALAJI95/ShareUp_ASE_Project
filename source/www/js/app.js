@@ -48,70 +48,37 @@ function startScan() {
       $scope.inputs = [{
         value: null
     }];
-           $scope.prices = [{
-               "price":[]
-           }];
+           $scope.prices = [];
          $scope.field=function () {
            $scope.inputs.push({
              value: null
            })
          }
     $scope.addInput = function () {
+        for (var i = 0; i < $scope.inputs.length; i++) {
+            console.log($scope.inputs[i]);
+            $http.get("http://api.walmartlabs.com/v1/search?apiKey=9gnk426wzsb972r7xmumfaxr&query=" + $scope.inputs[i].value + "&numItems=1")
+                .success(function (data) {
 
-      $http.get("http://api.walmartlabs.com/v1/items?ids=16821022,44436664,33282383,44981963,10295586,33282297&apiKey=9gnk426wzsb972r7xmumfaxr&format=json")
-        .success(function(data) {
-          for(var i=0;i<$scope.inputs.length;i++) {
-          if($scope.inputs[i].value=='pepsi'){
+                    //$scope.prices[i]= data.items[0].salePrice;
+                    //console.log(data.items[0].salePrice);
+                    //str.search(/todd/i);
+                    //$scope.inputs[i].search(data.items[0].name)
 
-            console.log(data.items[0].salePrice);
-              $scope.price0= data.items[0].salePrice;
+                    //if ($scope.inputs[i].contains(data.items[0].name)){
 
-              $scope.prices.push($scope.price0);
-            }
-          else if($scope.inputs[i].value=='doritos'){
-            console.log(data.items[1].salePrice);
-              console.log($scope.prices);
-            $scope.price1= data.items[1].salePrice;
+                    console.log($scope.inputs[0],data.items[0].name)
+                    $scope.prices.push(data.items[0].salePrice);
+               //}
+                    //$scope.price[i]=$scope.prices[i];
+                    console.log($scope.prices)
+                })
+                .error(function (data) {
+                    //alert("ERROR");
+                });
 
-              $scope.prices.push($scope.price1);}
-          else if($scope.inputs[i].value=='snickers'){
-            console.log(data.items[2].salePrice);
-            $scope.price2= data.items[2].salePrice;
-              $scope.prices.push($scope.price2);
-           }
-          else if($scope.inputs[i].value=='monster'){
-            console.log(data.items[3].salePrice);
-            $scope.price3= data.items[3].salePrice;
-            ;
-              $scope.prices.push($scope.price3)}
-          else if($scope.inputs[i].value=='kraft'||$scope.inputs[i].value=='cheese'){
-            console.log(data.items[4].salePrice);
-            $scope.price4= data.items[4].salePrice
-              $scope.prices.push($scope.price4);;
-              }
-          else if($scope.inputs[i].value=='louna'||$scope.inputs[i].value=='oil'){
-            console.log(data.items[5].salePrice);
-            $scope.price5= data.items[5].salePrice;
-              $scope.prices.push($scope.price5);
-          }
-          }
-
-          //$scope.price0= data.items[0].salePrice;
-          //$scope.price1= data.items[1].salePrice;
-          //$scope.price2= data.items[2].salePrice;
-          //$scope.price3= data.items[3].salePrice;
-          //$scope.price4= data.items[4].salePrice;
-          //$scope.price5= data.items[5].salePrice;
-
-
-
-        })
-        .error(function(data) {
-          //alert("ERROR");
-        });
-
+        }
     }
-
     $scope.removeInput = function (index) {
         $scope.inputs.splice(index, 1);
     }
