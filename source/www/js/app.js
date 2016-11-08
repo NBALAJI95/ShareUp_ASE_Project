@@ -44,19 +44,26 @@ function startScan() {
 	);
 
 }
-       exampleApp.controller('ExampleController', function($scope, $http) {
+       exampleApp.controller('ExampleController', function($scope, $http, $ionicPopup, $timeout) {
+
+
       $scope.inputs = [{
         value: null
     }];
-           $scope.prices = [];
+
+               $scope.pric=[] ;
+
          $scope.field=function () {
            $scope.inputs.push({
              value: null
            })
          }
     $scope.addInput = function () {
+        $scope.prices = [];
+
         for (var i = 0; i < $scope.inputs.length; i++) {
-            console.log($scope.inputs[i]);
+
+            //console.log($scope.inputs[i]);
             $http.get("http://api.walmartlabs.com/v1/search?apiKey=9gnk426wzsb972r7xmumfaxr&query=" + $scope.inputs[i].value + "&numItems=1")
                 .success(function (data) {
 
@@ -67,11 +74,13 @@ function startScan() {
 
                     //if ($scope.inputs[i].contains(data.items[0].name)){
 
-                    console.log($scope.inputs[0],data.items[0].name)
-                    $scope.prices.push(data.items[0].salePrice);
+                    //console.log($scope.inputs[0],data.items[0].name)
+                    $scope.prices.push(data.items[0].name,data.items[0].salePrice);
                //}
                     //$scope.price[i]=$scope.prices[i];
-                    console.log($scope.prices)
+                   //console.log($scope.price)
+                    $scope.pric=$scope.prices;
+                    //console.log($scope.pric)
                 })
                 .error(function (data) {
                     //alert("ERROR");
@@ -79,13 +88,24 @@ function startScan() {
 
         }
     }
+           $scope.popUpColors = function(){
+               $scope.addInput();
+               $scope.popUp = $ionicPopup.alert({
+                   animation: $scope.animationsEnabled,
+                   templateUrl: 'popup.html',
+                   scope: $scope
+               });
+           };
+
     $scope.removeInput = function (index) {
         $scope.inputs.splice(index, 1);
     }
     $scope.getData = function() {
 
     }
-   
+   $scope.displ=function () {
+       console.log($scope.pric)
+   }
  
 });
 
