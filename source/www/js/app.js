@@ -52,6 +52,7 @@ function startScan() {
     }];
 
                $scope.pric=[] ;
+           $scope.nam=[];
 
          $scope.field=function () {
            $scope.inputs.push({
@@ -60,6 +61,7 @@ function startScan() {
          }
     $scope.addInput = function () {
         $scope.prices = [];
+        $scope.names=[];
 
         for (var i = 0; i < $scope.inputs.length; i++) {
 
@@ -75,11 +77,17 @@ function startScan() {
                     //if ($scope.inputs[i].contains(data.items[0].name)){
 
                     //console.log($scope.inputs[0],data.items[0].name)
-                    $scope.prices.push(data.items[0].name,data.items[0].salePrice);
+
+                    $scope.prices.push(data.items[0].salePrice);
+                    console.log($scope.prices)
+
+                    $scope.names.push(data.items[0].name);
+
                //}
                     //$scope.price[i]=$scope.prices[i];
                    //console.log($scope.price)
                     $scope.pric=$scope.prices;
+                    $scope.nam=$scope.names;
                     //console.log($scope.pric)
                 })
                 .error(function (data) {
@@ -88,11 +96,12 @@ function startScan() {
 
         }
     }
-           $scope.popUpColors = function(){
+           $scope.popUp = function(){
                $scope.addInput();
                $scope.popUp = $ionicPopup.alert({
                    animation: $scope.animationsEnabled,
                    templateUrl: 'popup.html',
+                   cssClass: 'popupcss',
                    scope: $scope
                });
            };
