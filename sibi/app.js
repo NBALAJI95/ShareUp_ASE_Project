@@ -65,30 +65,17 @@ function startScan() {
 
         for (var i = 0; i < $scope.inputs.length; i++) {
 
-            //console.log($scope.inputs[i]);
             $http.get("http://api.walmartlabs.com/v1/search?apiKey=9gnk426wzsb972r7xmumfaxr&query=" + $scope.inputs[i].value + "&numItems=1")
                 .success(function (data) {
-
-                    //$scope.prices[i]= data.items[0].salePrice;
-                    //console.log(data.items[0].salePrice);
-                    //str.search(/todd/i);
-                    //$scope.inputs[i].search(data.items[0].name)
-
-                    //if ($scope.inputs[i].contains(data.items[0].name)){
-
-                    //console.log($scope.inputs[0],data.items[0].name)
 
                     $scope.prices.push(data.items[0].salePrice);
                     console.log($scope.prices)
 
                     $scope.names.push(data.items[0].name);
 
-               //}
-                    //$scope.price[i]=$scope.prices[i];
-                   //console.log($scope.price)
                     $scope.pric=$scope.prices;
                     $scope.nam=$scope.names;
-                    //console.log($scope.pric)
+                   
                 })
                 .error(function (data) {
                     //alert("ERROR");
