@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
       name1.success(function(data){
 console.log(data.length)
         for(var i=0;i<data.length;i++) {
-          $scope.gnamename[i] = {"name": data[0].username};
+          $scope.gnamename[i] = {"name": data[i].username};
         }
         console.log($scope.gnamename)
       });
