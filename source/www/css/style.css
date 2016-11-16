@@ -46,4 +46,16 @@ div.transbox.p
   font-weight: bold;.
   color: #000000;
 }
+table, th, td {
+  border: 1px solid black;
+  width: inherit;
+  height: inherit;
+}
+.popup{
+  width: inherit !important;
+  height: inherit;
+}
+
+
+
 
