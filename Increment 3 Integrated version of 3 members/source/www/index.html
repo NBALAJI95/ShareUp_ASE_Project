@@ -37,30 +37,31 @@
   </head>
     
   <body ng-app="start">
-     <ion-view>
-	 <div class="cde">
-  <ion-content padding="true" style="background: url(img/background.jpg) no-repeat center;background-size:cover;" >
-    <ion-list id="login-list1">
-      <br><br>
-      <label class="item item-input" id="login-input1">
-        <span class="input-label" style="color:lig" >Group Name</span><input type="text"  ng-model="data1.group">
-      </label>
+      <ion-view padding="true" style="background: url(img/background.jpg) no-repeat center;background-size:cover;">
+  <ion-content>
 
-      <br><br>
-    </ion-list>
-      <br><br>
-    <ul class="list" ng-repeat="user in gnamename">
-      <li class="item"  >
-     {{user.name}}
-      </li>
-    </ul>
-    <button class="button button-block button-positive" id="create_group" ng-click="getusers()">Get Group Members</button>
+    <div class="row">
+      <div class="hero no-header flat">
+        <div class="content">
+          {{err}}
+          <div class="app-icon"></div>
+        </div>
+      </div>
+      <div class="col text-center">
+        <button class="button button-dark button-large " id="rcorners1" style="margin-top:250px ;margin-right: 50px;; width:99px"onclick="location.href='login.html'">Login</button>&nbsp;&nbsp;
+        <button class="button button-dark button-large " id ="rcorners2" style="margin-top: 250px" onclick="location.href='register.html'">Register</button>
+      </div>
+    </div>
+
   </ion-content>
-  </div>
 </ion-view>
+     
       <script>
       
       </script>
     </body>
     
 </html>
+
+
+
