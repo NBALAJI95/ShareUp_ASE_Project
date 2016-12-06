@@ -10,12 +10,12 @@ angular.module('starter.services', [])
           contentType:"application/json"
 
         }).success(function(data){
-          alert(data[0].password);
+
           if (name == data[0].username&&pw==data[0].password ){
-            alert('match');
+
             deferred.resolve('Welcome ' + data[0].username + '!');
           } else {
-            alert('mismatch');
+
             deferred.reject('Wrong credentials.');
           }
 
@@ -168,14 +168,13 @@ angular.module('starter.services', [])
             password: password,
             cpassword:pass,
             mobile:mob,
-            nick:nic,
+            email:nic,
             gname:gn,
           }),
           contentType:"application/json"
 
         }).success(function(data){
 
-          alert(data);
           deferred.resolve('Welcome!');
           /* if ( data[0].username != null && data[0].password != null && data[0].lastname != null && data[0].firstname != null &&data[0].email != null ) {
            deferred.resolve('Welcome ' + data[0].username + '!');
