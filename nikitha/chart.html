@@ -1,0 +1,84 @@
+<html class="ab">
+<head>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data_file = "https://api.mongolab.com/api/1/databases/harry/collections//expense?apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4";
+      var http_request = new XMLHttpRequest();
+
+      http_request.onreadystatechange = function(){
+
+        if (http_request.readyState == 4  ){
+          var jsonObj = JSON.parse(http_request.responseText);
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Name');
+          data.addColumn('number', 'Income');
+          for(var i=0;i<jsonObj.length;i++)
+          {
+            data.addRows([
+              [jsonObj[i].name, parseInt(jsonObj[i].amount)]
+            ]);
+          }
+          // Set chart options
+          var options = {'title':'BarChart:Hover Cursor onto each element',
+            'width':800,
+            'height':450};
+
+          var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+      }
+
+      http_request.open("GET", data_file, true);
+      http_request.send();
+    drawchart1();
+    }
+    function drawchart1(){
+      var data_file1 = "https://api.mongolab.com/api/1/databases/harry/collections//exp?apiKey=0xCX7-4KL6dGWvAOR5PLzPaC-DtA0KZ4";
+      var http_request1 = new XMLHttpRequest();
+
+      http_request1.onreadystatechange = function(){
+
+        if (http_request1.readyState == 4  ){
+          var jsonObj1 = JSON.parse(http_request1.responseText);
+          var data1 = new google.visualization.DataTable();
+          data1.addColumn('string', 'Name');
+          data1.addColumn('number', 'Expense');
+          for(var i=0;i<jsonObj1.length;i++)
+          {
+            data1.addRows([
+              [jsonObj1[i].name, parseInt(jsonObj1[i].amount)]
+            ]);
+          }
+          // Set chart options
+          var options1 = {'title':'LineChart:Hover Cursor onto each element',
+            'width':800,
+            'height':450};
+
+          var chart1 = new google.visualization.LineChart(document.getElementById('chart'));
+          chart1.draw(data1, options1);
+        }
+      }
+      http_request1.open("GET", data_file1,   true);
+      http_request1.send();
+    }
+
+  </script>
+  <style>
+
+    .ab
+    {
+      background: url(../img/bg.jpg)no-repeat center;background-size:cover;
+    }
+  </style>
+</head>
+
+<body>
+<div id="chart_div"></div><br><br><br>
+<div id="chart"></div>
+</body>
+</html>
