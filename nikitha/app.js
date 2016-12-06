@@ -50,10 +50,57 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }
   })
 
+    .state('inv', {
+      url: '/inv',
+      templateUrl: 'templates/inv.html',
+      controller: 'InviewCtrl',
+
+    })
+
+    .state('add', {
+      url: '/inv/add',
+      templateUrl: 'templates/add.html',
+      controller: 'AddCtrl'
+      /*views: {
+       'tab-add': {
+
+       }
+       }*/
+    })
+
+    .state('adde', {
+      url: '/env/adde',
+      templateUrl: 'templates/adde.html',
+      controller: 'AddeCtrl'
+      /*views: {
+       'tab-add': {
+
+       }
+       }*/
+    })
+    .state('expense', {
+      url: '/expense',
+      templateUrl: 'templates/expense.html',
+      controller: 'exCtrl',
+
+    })
+    .state('env', {
+      url: '/env',
+      templateUrl: 'templates/env.html',
+      controller: 'ExpenseviewCtrl',
+
+    })
+
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl',
+
+    })
+    .state('grocery', {
+      url: '/grocery',
+      templateUrl: 'templates/grocery.html',
+      controller: 'groceryCtrl',
 
     })
     .state('register', {
@@ -63,12 +110,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     })
 
-    .state('group', {
-      url: '/group',
-      templateUrl: 'templates/group.html',
-      controller: 'groupCtrlr',
-
-    })
 
     .state('home', {
       url: '/home',
@@ -77,6 +118,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     })
 
+    .state('forum', {
+      url: '/forum',
+      templateUrl: 'templates/forum.html',
+      controller: 'forumctrl',
+
+    })
 
     .state('tab.chats', {
       url: '/chats',
